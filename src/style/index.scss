@@ -1,3 +1,118 @@
 @import "variables";
 @import "mixins";
 @import "reboot";
+
+.header {
+  padding: 30px;
+  border-bottom: 1px solid $border-color;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: inline;
+}
+
+%button {
+  $button-height: 40px;
+  height: $button-height;
+  border-radius: $button-height / 2;
+  text-align: center;
+  line-height: $button-height;
+  border: 1px solid $primary-color;
+  font-size: 1em;
+
+  &:link {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+%header-button {
+  @extend %button;
+  display: inline-block;
+  width: 100px;
+  margin-left: 5px;
+}
+
+%form-button {
+  @extend %button;
+}
+
+%transparent-button {
+  background: transparent;
+  color: $primary-color;
+}
+
+%primary-button {
+  background: $primary-color;
+  color: $white;
+}
+
+.button-register-short {
+  @extend %header-button;
+  @extend %primary-button;
+}
+
+.button-login-short {
+  @extend %header-button;
+  @extend %transparent-button;
+}
+
+.main {
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  border: 1px solid $border-color;
+  border-radius: $border-radius-base;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $border-color;
+  height: 30px;
+  margin-bottom: 20px;
+  outline: none;
+  color: $white;
+}
+
+.forgot-password {
+  color: $primary-color;
+  margin-bottom: 20px;
+
+  &:link {
+    text-decoration: none;
+  }
+}
+
+.button-login {
+  @extend %form-button;
+  @extend %transparent-button;
+}
+
+.or {
+  align-self: center;
+  margin: 20px;
+}
+
+.button-register {
+  @extend %form-button;
+  @extend %primary-button;
+}
